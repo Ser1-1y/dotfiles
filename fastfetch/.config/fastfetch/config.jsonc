@@ -1,0 +1,30 @@
+{
+  "logo": {
+    "type": "builtin",
+    "source": "~/.config/fastfetch/arch.png",
+    "padding": {
+      "top": 1,
+      "left": 2
+    }
+  },
+  "modules": [
+    "os",
+    "packages",
+    "battery",
+    "uptime",
+    "disk",
+    {
+        "type": "command",
+        "key": "OS Age",
+        "keyColor": "cyan",
+        "text": "echo $(( ($(date +%s) - $(stat -c %W /)) / 86400 )) days"
+    },
+    "kernel",
+    "shell",
+    "wm",
+    "terminal",
+    "cpu",
+    "gpu",
+    "memory"
+  ]
+}
