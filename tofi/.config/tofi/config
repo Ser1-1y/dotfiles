@@ -22,7 +22,7 @@ result-spacing = 15
 background-color = #282A36
 
 # Prompt
-prompt-text = "Search: "
+prompt-text = ""
 prompt-color = #F8F8F2
 
 # Input
