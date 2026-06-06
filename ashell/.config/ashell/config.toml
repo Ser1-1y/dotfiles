@@ -12,14 +12,3 @@ backdrop = 0.3
 left = [ "Workspaces", "Tray" ]
 center = [ "WindowTitle" ]
 right = [["Updates"], ["KeyboardLayout"], ["Tempo", "Privacy", "Settings"], "appLauncher"]
-
-[updates]
-check_cmd = "checkupdates 2>/dev/null; yay -Qua 2>/dev/null | sort -u"
-update_cmd = 'kitty fish -c "update; echo; echo Done - Press enter to exit; read" &'
-
-interval = 3600
-
-[[CustomModule]]
-name = "appLauncher"
-icon = "󱗼"
-command = "tofi-drun --drun-launch=true"
