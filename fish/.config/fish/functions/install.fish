@@ -1,3 +1,3 @@
-function install --wraps='sudo pacman -S --noconfirm --needed --color=auto' --description 'alias install=sudo pacman -S --noconfirm --needed --color=auto'
-    sudo pacman -S --noconfirm --needed --color=auto $argv
+function install --wraps='sudo pacman -S --noconfirm --needed --color=auto' --wraps='sudo pacman -S --noconfirm --needed' --description 'alias install sudo pacman -S --noconfirm --needed'
+    sudo pacman -S --noconfirm --needed $argv
 end
