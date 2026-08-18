@@ -7,6 +7,8 @@ require("binds")
 --## PERMISSIONS ###
 --##################
 
+hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
+
 --####################
 --## LOOK AND FEEL ###
 --####################
@@ -155,6 +157,22 @@ hl.window_rule({
     move = "20 monitor_h-120",
     float = true,
 })
+
+if hl.plugin.dynamic_cursors then 
+	hl.config { plugin = { dynamic_cursors = {
+	    enabled = true,
+	    mode = "stretch",
+	    threshold = 2,
+	    stretch = {
+	        limit = 5000,
+	        activation = "quadratic",
+	        window = 100,
+	    },
+	    shake = {
+	        enabled = false,
+	    },
+	}}}
+end
 
 hl.config({
     general = {
