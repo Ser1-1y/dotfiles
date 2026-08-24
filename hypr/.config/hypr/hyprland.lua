@@ -1,4 +1,14 @@
-require("general")
+hl.window_rule({
+    name = "firefox-pip",
+    match = {
+        class = "firefox",
+        title = "^(Picture-in-Picture)$"
+    },
+    float = true,
+    pin = true,
+    no_initial_focus = true,
+    suppress_event = "maximize fullscreen"
+})require("general")
 require("autostart")
 require("env")
 require("binds")
@@ -156,6 +166,18 @@ hl.window_rule({
     },
     move = "20 monitor_h-120",
     float = true,
+})
+
+hl.window_rule({
+    name = "librewolf-pip",
+    match = {
+        class = "librewolf",
+        title = "^(Picture-in-Picture)$"
+    },
+    float = true,
+    pin = true,
+    no_initial_focus = false,
+    suppress_event = "maximize fullscreen"
 })
 
 if hl.plugin.dynamic_cursors then 
