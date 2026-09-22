@@ -23,120 +23,37 @@ hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
 --## LOOK AND FEEL ###
 --####################
 
-hl.curve("easeOutQuint", { type = "bezier", points = { { 0.23, 1 }, { 0.32, 1 } } })
-hl.curve("easeInOutCubic", { type = "bezier", points = { { 0.65, 0.05 }, { 0.36, 1 } } })
-hl.curve("linear", { type = "bezier", points = { { 0, 0 }, { 1, 1 } } })
-hl.curve("almostLinear", { type = "bezier", points = { { 0.5, 0.5 }, { 0.75, 1 } } })
-hl.curve("quick", { type = "bezier", points = { { 0.15, 0 }, { 0.1, 1 } } })
-hl.animation({
-    leaf = "global",
-    enabled = true,
-    speed = 10,
-    bezier = "default",
-})
-hl.animation({
-    leaf = "border",
-    enabled = true,
-    speed = 5.39,
-    bezier = "easeOutQuint",
-})
-hl.animation({
-    leaf = "windows",
-    enabled = true,
-    speed = 4.79,
-    bezier = "easeOutQuint",
-})
-hl.animation({
-    leaf = "windowsIn",
-    enabled = true,
-    speed = 4.1,
-    bezier = "easeOutQuint",
-    style = "popin 87%",
-})
-hl.animation({
-    leaf = "windowsOut",
-    enabled = true,
-    speed = 1.49,
-    bezier = "linear",
-    style = "popin 87%",
-})
-hl.animation({
-    leaf = "fadeIn",
-    enabled = true,
-    speed = 1.73,
-    bezier = "almostLinear",
-})
-hl.animation({
-    leaf = "fadeOut",
-    enabled = true,
-    speed = 1.46,
-    bezier = "almostLinear",
-})
-hl.animation({
-    leaf = "fade",
-    enabled = true,
-    speed = 3.03,
-    bezier = "quick",
-})
-hl.animation({
-    leaf = "layers",
-    enabled = true,
-    speed = 3.81,
-    bezier = "easeOutQuint",
-})
-hl.animation({
-    leaf = "layersIn",
-    enabled = true,
-    speed = 4,
-    bezier = "easeOutQuint",
-    style = "fade",
-})
-hl.animation({
-    leaf = "layersOut",
-    enabled = true,
-    speed = 1.5,
-    bezier = "linear",
-    style = "fade",
-})
-hl.animation({
-    leaf = "fadeLayersIn",
-    enabled = true,
-    speed = 1.79,
-    bezier = "almostLinear",
-})
-hl.animation({
-    leaf = "fadeLayersOut",
-    enabled = true,
-    speed = 1.39,
-    bezier = "almostLinear",
-})
-hl.animation({
-    leaf = "workspaces",
-    enabled = true,
-    speed = 1.54,
-    bezier = "easeInOutCubic",
-    style = "slide",
-})
-hl.animation({
-    leaf = "workspacesIn",
-    enabled = true,
-    speed = 1.01,
-    bezier = "easeInOutCubic",
-    style = "slide",
-})
-hl.animation({
-    leaf = "workspacesOut",
-    enabled = true,
-    speed = 1.54,
-    bezier = "easeInOutCubic",
-    style = "slide",
-})
-hl.animation({
-    leaf = "zoomFactor",
-    enabled = true,
-    speed = 7,
-    bezier = "quick",
-})
+-- Spring Curves
+-- HL 0.56+ advances springs by real wall-clock time (no min tick floor).
+-- Pre-0.56 soft values (mass ~2, stiffness ~15-30) feel sluggish now.
+-- Speed on spring animations is largely ignored; stiffness/mass/dampening set pace.
+hl.curve("spring_fast", { type = "spring", mass = 1, stiffness = 280, dampening = 26 })
+hl.curve("spring_slow", { type = "spring", mass = 1, stiffness = 160, dampening = 24 })
+
+-- Window animations
+hl.animation({ leaf = "windows", enabled = true, speed = 1, spring = "spring_fast" })
+hl.animation({ leaf = "windowsIn", enabled = true, speed = 1, spring = "spring_fast", style = "popin 50%" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 1, spring = "spring_fast", style = "popin" })
+
+-- Border animations
+hl.animation({ leaf = "border", enabled = true, speed = 1, spring = "spring_slow" })
+hl.animation({ leaf = "borderangle", enabled = false })
+
+-- Fade
+hl.animation({ leaf = "fade", enabled = true, speed = 1, spring = "spring_slow" })
+
+-- Zoom cursor
+hl.animation({ leaf = "zoomFactor", enabled = true, speed = 6, spring = "spring_fast" })
+
+-- Layer animations
+hl.animation({ leaf = "layersIn", enabled = true, speed = 3, spring = "spring_fast", style = "slide" })
+hl.animation({ leaf = "layersOut", enabled = true, speed = 1.6, spring = "spring_fast", style = "slide" })
+hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 2, spring = "spring_fast" })
+hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 1.6, spring = "spring_fast" })
+
+-- Workspace animations
+hl.animation({ leaf = "workspaces", enabled = true, speed = 1, spring = "spring_fast", style = "slide" })
+hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 1, spring = "spring_fast", style = "slidevert 80%" })
 
 hl.window_rule({
     name = "suppress-maximize-events",
