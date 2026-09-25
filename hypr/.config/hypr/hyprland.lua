@@ -1,14 +1,4 @@
-hl.window_rule({
-    name = "firefox-pip",
-    match = {
-        class = "firefox",
-        title = "^(Picture-in-Picture)$"
-    },
-    float = true,
-    pin = true,
-    no_initial_focus = true,
-    suppress_event = "maximize fullscreen"
-})require("general")
+require("general")
 require("autostart")
 require("env")
 require("binds")
@@ -61,6 +51,12 @@ hl.window_rule({
         class = ".*",
     },
     suppress_event = "maximize",
+})
+
+hl.layer_rule({
+    name = "screenshot-no-anim",
+    match = { namespace = "^(hyprpicker|selection)$" },
+    no_anim = true,
 })
 
 hl.window_rule({

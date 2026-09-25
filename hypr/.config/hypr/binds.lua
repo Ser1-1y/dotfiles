@@ -38,10 +38,10 @@ hl.bind(mainMod .. " + P", hl.dsp.window.pin())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 
-hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
 
 hl.bind(mainMod .. " + ALT + A", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + ALT + D", hl.dsp.focus({ direction = "right" }))
@@ -71,47 +71,46 @@ hl.bind(mainMod .. " + SHIFT + 9", hl.dsp.window.move({ workspace = 9 }))
 hl.bind(mainMod .. " + SHIFT + 0", hl.dsp.window.move({ workspace = 10 }))
 
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e+1" }))
 
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag())
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize())
 
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { locked = true, repeating = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),      { locked = true, repeating = true })
 
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true, repeating = true })
+hl.bind("XF86AudioMute",    hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true, repeating = true })
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("sh -c 'wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle; if wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q MUTED; then brightnessctl -d platform::micmute set 1; else brightnessctl -d platform::micmute set 0; fi'"), { locked = true, repeating = true })
 
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
 
-hl.bind("SUPER + A", hl.dsp.window.move({ direction = "l" }), { repeating = true })
-hl.bind("SUPER + D", hl.dsp.window.move({ direction = "r" }), { repeating = true })
-hl.bind("SUPER + W", hl.dsp.window.move({ direction = "u" }), { repeating = true })
-hl.bind("SUPER + S", hl.dsp.window.move({ direction = "d" }), { repeating = true })
+hl.bind(mainMod .. " + A", hl.dsp.window.move({ direction = "l" }), { repeating = true })
+hl.bind(mainMod .. " + D", hl.dsp.window.move({ direction = "r" }), { repeating = true })
+hl.bind(mainMod .. " + W", hl.dsp.window.move({ direction = "u" }), { repeating = true })
+hl.bind(mainMod .. " + S", hl.dsp.window.move({ direction = "d" }), { repeating = true })
 
-hl.bind(mainMod .. " + CTRL + D", hl.dsp.window.resize({ x = 50, y = 0, relative = true }), { locked = true, repeating = true })
+hl.bind(mainMod .. " + CTRL + D", hl.dsp.window.resize({ x = 50, y = 0, relative = true }),  { locked = true, repeating = true })
 hl.bind(mainMod .. " + CTRL + A", hl.dsp.window.resize({ x = -50, y = 0, relative = true }), { locked = true, repeating = true })
 hl.bind(mainMod .. " + CTRL + W", hl.dsp.window.resize({ x = 0, y = -50, relative = true }), { locked = true, repeating = true })
-hl.bind(mainMod .. " + CTRL + S", hl.dsp.window.resize({ x = 0, y = 50, relative = true }), { locked = true, repeating = true })
+hl.bind(mainMod .. " + CTRL + S", hl.dsp.window.resize({ x = 0, y = 50, relative = true }),  { locked = true, repeating = true })
 
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
 
-hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
+hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("grimblast --freeze copy area && notify-send \"Скриншот\" \"Скриншот сохранён в буфер обмена.\""))
+hl.bind(mainMod .. " + SHIFT + S",  hl.dsp.exec_cmd("grimblast --freeze copy area && notify-send \"Скриншот\" \"Скриншот сохранён в буфер обмена.\""))
+hl.bind(mainMod .. " + SHIFT + P",  hl.dsp.exec_cmd("hyprpicker | wl-copy"))
 
-hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("hyprpicker | wl-copy"))
-
-hl.bind("SUPER + ALT + B", hl.dsp.exec_cmd("sh -c 'bluetoothctl show | grep -q \"Powered: yes\" && bluetoothctl power off || bluetoothctl power on'"))
+hl.bind(mainMod .. " + ALT + B",    hl.dsp.exec_cmd("sh -c 'bluetoothctl show | grep -q \"Powered: yes\" && bluetoothctl power off || bluetoothctl power on'"))
 
 hl.bind("CONTROL + SHIFT + Escape", hl.dsp.exec_cmd("kitty -e btop"))
 
-local current_mode_index = 1
 
+local current_mode_index = 1
 hl.bind(mainMod .. " + B", function()
     current_mode_index = current_mode_index + 1
     if current_mode_index > #modes then
@@ -127,10 +126,9 @@ end, { repeating = true })
 
 
 
-hl.bind("SUPER + F11", hl.dsp.submap("passthrough"))
+hl.bind(mainMod .. " + F11", hl.dsp.submap("passthrough"))
 hl.define_submap("passthrough", function()
-
-    hl.bind("SUPER + F11", hl.dsp.submap("reset"))
+    hl.bind(mainMod .. " + F11", hl.dsp.submap("reset"))
 end)
 
 hl.config({
