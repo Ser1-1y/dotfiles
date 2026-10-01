@@ -1,3 +1,0 @@
-function ardu-upload --description 'alias ardu-upload=cd ~/Documents/Работы/Arduino/ && arduino-cli compile --fqbn arduino:avr:nano:cpu=atmega328old . && arduino-cli upload -p /dev/ttyUSB0 --fqbn arduino:avr:nano:cpu=atmega328old . && arduino-cli monitor -p /dev/ttyUSB0 -c baudrate=9600'
-    cd ~/Documents/Projects/Arduino/ && arduino-cli compile --fqbn arduino:avr:nano:cpu=atmega328old . && arduino-cli upload -p /dev/ttyUSB0 --fqbn arduino:avr:nano:cpu=atmega328old . && arduino-cli monitor -p /dev/ttyUSB0 -c baudrate=9600 $argv
-end
