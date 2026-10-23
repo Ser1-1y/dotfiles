@@ -20,7 +20,7 @@
         "text": "echo $(( ($(date +%s) - $(stat -c %W /)) / 86400 )) days"
     },
     "kernel",
-    "shell",
+	"display",
     "wm",
     "terminal",
     "cpu",
