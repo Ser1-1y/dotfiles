@@ -103,9 +103,17 @@ if hl.plugin.dynamic_cursors then
 	        activation = "quadratic",
 	        window = 100,
 	    },
-	    shake = {
-	        enabled = false,
-	    },
+        shake = {
+            enabled = true,
+            threshold = 7.0,
+            base = 4.0,
+            speed = 4.0,
+            influence = 0.0,
+            limit = 10.0,
+            timeout = 250,
+            effects = true,
+            ipc = false,
+        }
 	}}}
 end
 
