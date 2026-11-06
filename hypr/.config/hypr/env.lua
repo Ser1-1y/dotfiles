@@ -16,6 +16,7 @@ hl.env("GTK_THEME",            "Breeze-Dark")
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
 hl.env("XDG_MENU_PREFIX",              "arch-")
 
+hl.env("LC_TIME", "C.UTF-8")
 --##########
 --## XDG ###
 --##########
