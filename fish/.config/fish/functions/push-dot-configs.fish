@@ -1,3 +1,5 @@
-function push-dot-configs --wraps='cd ~/.dotfiles/ && git add . && git commit -m "update" && git push' --description 'alias push-dot-configs=cd ~/.dotfiles/ && git add . && git commit -m "update" && git push'
-    cd ~/.dotfiles/ && git add . && git commit -m "update" && git push $argv
+function push-dot-configs -a message --description 'commit and push dotfile changes to github'
+    test -n "$message"; or set message "update"
+
+    cd ~/.dotfiles/ && git add . && git commit -m "$message" && git push $argv[2..]
 end
